@@ -4,14 +4,13 @@ const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const devServerConfig = require('./config/devServer');
 
-
 const common = {
 
-    entry:  {
+    entry: {
         app: './app/app.module.ts'
     },
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'build'),
         filename: '[name].bundle.js'
     },
 
@@ -24,9 +23,9 @@ const common = {
     },
 
     plugins: [
-      new HtmlWebpackPlugin({
-          template: 'index.html'
-      })
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
     ],
 
     module: {
@@ -41,9 +40,17 @@ const common = {
 
 var config;
 
-switch(process.env.npm_lifecycle_event) {
+switch (process.env.npm_lifecycle_event) {
     case 'build':
-        config = merge(common, {});
+    case 'stats':
+        config = merge(
+            common,
+            {
+                output: {
+                    publicPath: '/TypescriptAngularSample/'
+                }
+            }
+        );
         break;
     default:
         config = merge(

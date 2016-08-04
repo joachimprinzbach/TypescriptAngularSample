@@ -12,4 +12,4 @@ typings
 *.log
 
 # built output folder
-dist
+build
