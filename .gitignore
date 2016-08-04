@@ -4,3 +4,6 @@
 
 # NodeJS Dependencies
 node_modules
+
+# TypeScript type definitions
+typings
