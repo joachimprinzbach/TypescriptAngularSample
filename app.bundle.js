@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "83b5ef66a9e585a0ecd1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0eb81903331c34163129"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -581,10 +581,31 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var app_component_1 = __webpack_require__(1);
+	var modules = [];
+	angular
+	    .module('app', modules.map(function (module) { return module.name; }))
+	    .component('app', app_component_1.AppComponent);
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
 	"use strict";
-	var x = "as";
+	exports.AppComponent = {
+	    template: "\n<h1>test</h1>\n        ",
+	    controllerAs: 'vm',
+	    controller: PeopleComponentController
+	};
+	var PeopleComponentController = (function () {
+	    function PeopleComponentController() {
+	    }
+	    return PeopleComponentController;
+	}());
 
 
 /***/ }
