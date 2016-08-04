@@ -7,7 +7,12 @@ const devServerConfig = require('./config/devServer');
 const common = {
 
     entry: {
-        app: './app/app.module.ts'
+        app: './app/app.ts',
+        vendor: './app/vendor.ts'
+    },
+
+    resolve: {
+        extensions: ['', '.ts', '.js']
     },
 
     output: {
