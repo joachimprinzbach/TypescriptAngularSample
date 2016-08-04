@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0eb81903331c34163129"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b9333baf6ec0eff7f45a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -584,11 +584,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var app_component_1 = __webpack_require__(1);
-	var modules = [];
+	var animal_service_1 = __webpack_require__(1);
+	var animals_component_1 = __webpack_require__(2);
+	var modules = [
+	    animal_service_1.animalServiceModule,
+	    animals_component_1.animalsComponentModule
+	];
+	var AppComponent = {
+	    templateUrl: './app/app.html'
+	};
 	angular
 	    .module('app', modules.map(function (module) { return module.name; }))
-	    .component('app', app_component_1.AppComponent);
+	    .component('app', AppComponent);
 
 
 /***/ },
@@ -596,16 +603,50 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	exports.AppComponent = {
-	    template: "\n<h1>test</h1>\n        ",
-	    controllerAs: 'vm',
-	    controller: PeopleComponentController
-	};
-	var PeopleComponentController = (function () {
-	    function PeopleComponentController() {
+	var AnimalService = (function () {
+	    function AnimalService($http, $q) {
+	        this.$http = $http;
+	        this.$q = $q;
 	    }
-	    return PeopleComponentController;
+	    AnimalService.prototype.getAnimals = function () {
+	        var deferred = this.$q.defer();
+	        this.$http.get('http://beta.json-generator.com/api/json/get/Eyf96Y2O-').then(function (response) {
+	            deferred.resolve(response.data);
+	        }, function (err) {
+	            deferred.reject(err);
+	        });
+	        return deferred.promise;
+	    };
+	    return AnimalService;
 	}());
+	exports.AnimalService = AnimalService;
+	exports.animalServiceModule = angular.module('animalServiceModule', [])
+	    .service('animalService', AnimalService);
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var animalsComponentController = (function () {
+	    function animalsComponentController(animalService) {
+	        this.animalService = animalService;
+	    }
+	    animalsComponentController.prototype.$onInit = function () {
+	        var _this = this;
+	        this.animalService.getAnimals()
+	            .then(function (animals) { return _this.animals = animals; });
+	    };
+	    return animalsComponentController;
+	}());
+	var animalsComponent = {
+	    controller: animalsComponentController,
+	    controllerAs: 'vm',
+	    templateUrl: 'app/animals/animals.html'
+	};
+	exports.animalsComponentModule = angular.module('animalsComponentModule', [])
+	    .component('animals', animalsComponent);
 
 
 /***/ }
