@@ -19,3 +19,12 @@ $ npm start
 
 Open Browser at http://127.0.0.1:3000
 
+## Deployment
+```sh
+$ npm run deploy
+```
+
+Publishes application to Github Pages branch. 
+
+Open https://joachimprinzbach.github.io/TypescriptAngularSample/
+
