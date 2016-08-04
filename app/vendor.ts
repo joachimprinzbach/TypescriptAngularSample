@@ -1,1 +1,1 @@
-import "angular";
+import 'angular';
