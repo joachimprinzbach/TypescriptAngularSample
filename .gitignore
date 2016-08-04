@@ -1,3 +1,6 @@
 # IntelliJ files
 .idea
 *.iml
+
+# NodeJS Dependencies
+node_modules
