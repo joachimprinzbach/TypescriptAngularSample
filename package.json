@@ -1,0 +1,6 @@
+{
+  "name": "typescript-angular",
+  "version": "0.1.0",
+  "description": "Sample AngularJS App with some TypeScript best practices",
+  "author": "Joachim Prinzbach"
+}
