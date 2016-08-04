@@ -10,3 +10,6 @@ typings
 
 # Logs
 *.log
+
+# built output folder
+dist
