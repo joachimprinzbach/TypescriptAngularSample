@@ -9,17 +9,10 @@ const common = {
     entry: {
         app: './app/app.module.ts'
     },
+
     output: {
         path: path.join(__dirname, 'build'),
         filename: '[name].bundle.js'
-    },
-
-    externals: {
-        "angular": "angular"
-    },
-
-    resolve: {
-        extensions: ['', '.ts', '.js']
     },
 
     plugins: [
