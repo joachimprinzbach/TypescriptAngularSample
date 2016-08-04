@@ -5,7 +5,9 @@
   "author": "Joachim Prinzbach",
   "scripts": {
     "start": "npm run lite",
-    "lite": "lite-server"
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "npm run typings -- install"
   },
   "dependencies": {
     "angular": "1.5.8"
