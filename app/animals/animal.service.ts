@@ -10,13 +10,11 @@ export class AnimalService  {
     }
 
     getAnimals(): IPromise<Animal[]> {
-        var deferred = this.$q.defer();
-        this.$http.get('http://beta.json-generator.com/api/json/get/Eyf96Y2O-').then(response => {
-            deferred.resolve(response.data);
-        }, err => {
-            deferred.reject(err);
+        return this.$q(resolve => {
+            this.$http.get('http://beta.json-generator.com/api/json/get/Eyf96Y2O-').then(response => {
+                resolve(response.data);
+            });
         });
-        return deferred.promise;
     }
 }
 
