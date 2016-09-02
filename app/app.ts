@@ -1,10 +1,12 @@
 import {animalServiceModule} from "./animals/animal.service";
 import {animalsComponentModule} from "./animals/animals.component";
 import IHttpProvider = angular.IHttpProvider;
+import {animalComonentModule} from "./animals/animal.component";
 
 const modules = [
     animalServiceModule,
-    animalsComponentModule
+    animalsComponentModule,
+    animalComonentModule
 ];
 
 const AppComponent = {
