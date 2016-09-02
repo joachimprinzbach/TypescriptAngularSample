@@ -19,7 +19,7 @@ const animalsComponent = {
     controller: animalsComponentController,
     controllerAs: 'vm',
     templateUrl: 'app/animals/animals.html'
-}
+};
 
 export const animalsComponentModule = angular.module('animalsComponentModule', [])
     .component('animals', animalsComponent);
