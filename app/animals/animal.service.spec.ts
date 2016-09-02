@@ -6,11 +6,13 @@ describe('animal service', () => {
     let animalService: AnimalService;
     let $httpBackend: IHttpBackendService;
 
-    beforeEach(angular.mock.module(animalServiceModule.name));
-    beforeEach(inject(function(_animalService_, _$httpBackend_) {
-        animalService = _animalService_;
-        $httpBackend = _$httpBackend_;
-    }))
+    beforeEach(() => {
+        angular.mock.module(animalServiceModule.name);
+        angular.mock.inject((_animalService_, _$httpBackend_) => {
+            animalService = _animalService_;
+            $httpBackend = _$httpBackend_;
+        })
+    });
 
     afterEach(() => {
        $httpBackend.verifyNoOutstandingExpectation();
