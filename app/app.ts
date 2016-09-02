@@ -1,12 +1,12 @@
-import {animalServiceModule} from "./animals/animal.service";
-import {animalsComponentModule} from "./animals/animals.component";
+import {bookServiceModule} from "./books/book.service";
+import {booksComponentModule} from "./books/books.component";
 import IHttpProvider = angular.IHttpProvider;
-import {animalComonentModule} from "./animals/animal.component";
+import {bookComonentModule} from "./books/book/book.component";
 
 const modules = [
-    animalServiceModule,
-    animalsComponentModule,
-    animalComonentModule
+    bookServiceModule,
+    booksComponentModule,
+    bookComonentModule
 ];
 
 const AppComponent = {

@@ -1,15 +1,15 @@
 import IHttpService = angular.IHttpService;
 import IQService = angular.IQService;
 import IPromise = angular.IPromise;
-import {Animal} from "./animal";
+import {Book} from "./book";
 import IHttpPromiseCallbackArg = angular.IHttpPromiseCallbackArg;
 
-export class AnimalService  {
+export class BookService  {
 
     constructor(private $http: IHttpService, private $q: IQService) {
     }
 
-    getAnimals(): IPromise<Animal[]> {
+    getBooks(): IPromise<Book[]> {
         return this.$q(resolve => {
             this.$http.get('http://beta.json-generator.com/api/json/get/Eyf96Y2O-').then(response => {
                 resolve(response.data);
@@ -18,5 +18,5 @@ export class AnimalService  {
     }
 }
 
-export const animalServiceModule = angular.module('animalServiceModule', [])
-    .service('animalService', AnimalService);
+export const bookServiceModule = angular.module('bookServiceModule', [])
+    .service('bookService', BookService);
