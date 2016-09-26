@@ -11,7 +11,7 @@ const modules = [
 
 const AppComponent = {
     templateUrl: './app/app.html'
-}
+};
 
 angular
     .module('app', modules.map(module => module.name))
