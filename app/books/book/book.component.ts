@@ -1,6 +1,6 @@
 import IComponentOptions = angular.IComponentOptions;
 
-const bookComponent: IComponentOptions = {
+const bookComponentOptions: IComponentOptions = {
     bindings: {
         book: '<'
     },
@@ -9,4 +9,4 @@ const bookComponent: IComponentOptions = {
 };
 
 export const bookComonentModule = angular.module('bookComponentModule', [])
-    .component('book', bookComponent);
+    .component('book', bookComponentOptions);

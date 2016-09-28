@@ -1,6 +1,7 @@
 import {BookService} from "./book.service";
 import {Book} from "./book";
 import IComponentController = angular.IComponentController;
+import IComponentOptions = angular.IComponentOptions;
 
 class booksComponentController implements IComponentController {
 
@@ -15,11 +16,11 @@ class booksComponentController implements IComponentController {
     }
 }
 
-const booksComponent = {
+const booksComponentOptions: IComponentOptions = {
     controller: booksComponentController,
     controllerAs: 'vm',
     templateUrl: 'app/books/books.html'
 };
 
 export const booksComponentModule = angular.module('booksComponentModule', [])
-    .component('books', booksComponent);
+    .component('books', booksComponentOptions);

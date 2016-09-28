@@ -2,6 +2,7 @@ import {bookServiceModule} from "./books/book.service";
 import {booksComponentModule} from "./books/books.component";
 import IHttpProvider = angular.IHttpProvider;
 import {bookComonentModule} from "./books/book/book.component";
+import IComponentOptions = angular.IComponentOptions;
 
 const modules = [
     bookServiceModule,
@@ -9,10 +10,10 @@ const modules = [
     bookComonentModule
 ];
 
-const AppComponent = {
+const appComponentOptions: IComponentOptions = {
     templateUrl: './app/app.html'
 };
 
 angular
     .module('app', modules.map(module => module.name))
-    .component('app', AppComponent);
+    .component('app', appComponentOptions);
