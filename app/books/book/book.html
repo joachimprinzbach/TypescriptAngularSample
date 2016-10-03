@@ -1,1 +1,11 @@
-<h3>{{vm.book.title}}</h3>
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{vm.book.title}}</span>
+            <span class="md-subhead">{{vm.book.authorFirstName}} {{vm.book.authorLastName}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <span>ISBN: {{vm.book.isbn}}</span>
+    </md-card-content>
+</md-card>

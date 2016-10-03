@@ -1,6 +1,4 @@
-import IComponentOptions = angular.IComponentOptions;
-
-const bookComponentOptions: IComponentOptions = {
+const bookComponentOptions: ng.IComponentOptions = {
     bindings: {
         book: '<'
     },

@@ -1,10 +1,9 @@
 import {bookServiceModule, BookService} from "./book.service";
-import IHttpBackendService = angular.IHttpBackendService;
 import {Book} from "./book";
 
 describe('book service', () => {
     let bookService: BookService;
-    let $httpBackend: IHttpBackendService;
+    let $httpBackend: ng.IHttpBackendService;
 
     beforeEach(() => {
         angular.mock.module(bookServiceModule.name);

@@ -1,19 +1,28 @@
-import IHttpService = angular.IHttpService;
-import IQService = angular.IQService;
-import IPromise = angular.IPromise;
 import {Book} from "./book";
-import IHttpPromiseCallbackArg = angular.IHttpPromiseCallbackArg;
 
-export class BookService  {
+export class BookService {
 
-    constructor(private $http: IHttpService, private $q: IQService) {
+    sampleDate: Book[] = [{
+        authorFirstName: 'Hans',
+        authorLastName: 'Muster',
+        isbn: 123213123,
+        title: 'Sample'
+    }, {
+        authorFirstName: 'Peter',
+        authorLastName: 'Lustig',
+        isbn: 8756568,
+        title: 'Test'
+    }]
+
+    constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
     }
 
-    getBooks(): IPromise<Book[]> {
+    getBooks(): ng.IPromise<Book[]> {
         return this.$q(resolve => {
-            this.$http.get('http://beta.json-generator.com/api/json/get/Eyf96Y2O-').then(response => {
-                resolve(response.data);
+            this.$http.get('https://www.googleapis.com/books/v1/volumes?q=domaindrivendesign').then(response => {
+                //resolve(response.data);
             });
+            return resolve(this.sampleDate);
         });
     }
 }
