@@ -6,5 +6,5 @@ const bookComponentOptions: ng.IComponentOptions = {
     controllerAs: 'vm'
 };
 
-export const bookComonentModule = angular.module('bookComponentModule', [])
+export const bookComponentModule = angular.module('bookComponentModule', [])
     .component('book', bookComponentOptions);
