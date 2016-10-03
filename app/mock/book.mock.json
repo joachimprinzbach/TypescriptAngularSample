@@ -1,0 +1,14 @@
+[
+  {
+    "authorFirstName": "Hans",
+    "authorLastName": "Muster",
+    "isbn": 123213123,
+    "title": "Sample"
+  },
+  {
+    "authorFirstName": "Peter",
+    "authorLastName": "Lustig",
+    "isbn": 8756568,
+    "title": "Test"
+  }
+]

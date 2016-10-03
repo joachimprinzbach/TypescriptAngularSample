@@ -14,8 +14,8 @@ describe('book service', () => {
     });
 
     afterEach(() => {
-       $httpBackend.verifyNoOutstandingExpectation();
-       $httpBackend.verifyNoOutstandingRequest();
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
     });
 
     it("should initialize correctly", () => {
@@ -23,15 +23,21 @@ describe('book service', () => {
     });
 
     it('call the correct endpoint to retrieve books', () => {
-        let exeptedBooks: Book[] = [{
-            isbn: 12545561
-        }, {
-            isbn: 56746545
-        }];
-        $httpBackend.expectGET("http://beta.json-generator.com/api/json/get/Eyf96Y2O-").respond(exeptedBooks);
+        let expectedBooks: Book[] = [{
+                    "authorFirstName": "Hans",
+                    "authorLastName": "Muster",
+                    "isbn": 123213123,
+                    "title": "Sample"
+                }, {
+                    "authorFirstName": "Peter",
+                    "authorLastName": "Lustig",
+                    "isbn": 8756568,
+                    "title": "Test"
+                }];
+        $httpBackend.expectGET("./app/mock/book.mock.json").respond(expectedBooks);
 
         bookService.getBooks().then(books => {
-            expect(books).toEqual(exeptedBooks);
+            expect(books).toEqual(expectedBooks);
         });
 
         $httpBackend.flush();
