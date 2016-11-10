@@ -11,7 +11,10 @@ class booksComponentController implements ng.IComponentController {
 
     $onInit() {
         this.bookService.getBooks()
-            .then(books => this.books = books);
+            .then(books => {
+                console.log(books);
+                this.books = books;
+            });
     }
 }
 
