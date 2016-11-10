@@ -1,18 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const validate = require('webpack-validator');
-const devServerConfig = require('./config/devServer');
+const webpack = require('webpack');
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
-const common = {
+
+module.exports = {
 
     entry: {
         app: './app/app.ts',
         vendor: './app/vendor.ts'
     },
 
+    devtool: 'source-map',
+
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['.ts', '.js', '.json'],
+        modules: ['node_modules']
     },
 
     output: {
@@ -23,6 +27,10 @@ const common = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html'
+        }),
+        new ngAnnotatePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true
         })
     ],
 
@@ -40,29 +48,4 @@ const common = {
     }
 };
 
-var config;
-
-switch (process.env.npm_lifecycle_event) {
-    case 'build':
-    case 'stats':
-        config = merge(
-            common,
-            {
-                output: {
-                    publicPath: '/TypescriptAngularSample/'
-                }
-            }
-        );
-        break;
-    default:
-        config = merge(
-            common,
-            devServerConfig.devServer({
-                host: process.env.HOST,
-                port: 3000
-            })
-        );
-}
-
-module.exports = validate(config);
 

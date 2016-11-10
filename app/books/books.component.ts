@@ -5,6 +5,7 @@ class booksComponentController implements ng.IComponentController {
 
     books: Book[];
 
+    // @ngInject
     constructor(private bookService: BookService) {
     }
 
